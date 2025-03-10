@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ evento.titulo }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>{{ evento.titulo }}</h1>
+    {% if evento.imagen %}
+        <img src="{{ evento.imagen.url }}" alt="{{ evento.titulo }}" style="width:100%;height:auto;">
+    {% endif %}
+    <p><strong>Fecha:</strong> {{ evento.fecha|date:"d/m/Y H:i" }}</p>
+    <p>{{ evento.descripcion }}</p>
+    {% if evento.ubicacion %}
+        <p><strong>Ubicación:</strong> {{ evento.ubicacion }}</p>
+    {% endif %}
+    {% if evento.url_evento %}
+        <p><a href="{{ evento.url_evento }}" target="_blank">More information / Inscription</a></p>
+    {% endif %}
+    <a href="{% url 'lista_eventos' %}">Volver a Eventos</a>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}{{ noticia.titulo }}{% endblock %}
+
+{% block content %}
+<div class="detalle-noticia">
+    <h1>{{ noticia.titulo }}</h1>
+    <img src="{{ noticia.foto.url }}" alt="{{ noticia.titulo }}" class="imagen-detalle">
+    <p class="fecha">{{ noticia.fecha_publicacion }}</p>
+    <p class="detalle">{{ noticia.detalle }}</p>
+    <a href="{% url 'listado_noticias' %}" class="volver">Come back to the list</a>
+</div>
+{% endblock %}
